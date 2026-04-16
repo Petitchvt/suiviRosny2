@@ -1,0 +1,36 @@
+{
+  "name": "VentesComparatif",
+  "type": "object",
+  "properties": {
+    "laboratoire": {
+      "type": "string",
+      "description": "Nom du laboratoire"
+    },
+    "ca_ht_n": {
+      "type": "number",
+      "description": "Chiffre d'affaires HT ann\u00e9e en cours"
+    },
+    "ca_ht_n1": {
+      "type": "number",
+      "description": "Chiffre d'affaires HT ann\u00e9e pr\u00e9c\u00e9dente (N-1)"
+    },
+    "mois": {
+      "type": "string",
+      "description": "Mois (ex: Janvier, F\u00e9vrier...)"
+    },
+    "annee": {
+      "type": "string",
+      "description": "Ann\u00e9e (ex: 2025, 2026)"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Date de mise \u00e0 jour"
+    }
+  },
+  "required": [
+    "laboratoire",
+    "ca_ht_n",
+    "mois",
+    "annee"
+  ]
+}

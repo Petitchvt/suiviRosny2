@@ -1,0 +1,34 @@
+{
+  "name": "TG",
+  "type": "object",
+  "properties": {
+    "nom": {
+      "type": "string"
+    },
+    "laboratoire": {
+      "type": "string"
+    },
+    "emplacement": {
+      "type": "string"
+    },
+    "actif": {
+      "type": "boolean",
+      "default": true
+    },
+    "ordre": {
+      "type": "number",
+      "description": "Ordre d'affichage dans la liste"
+    },
+    "map_row": {
+      "type": "number",
+      "description": "Position ligne sur le plan"
+    },
+    "map_col": {
+      "type": "number",
+      "description": "Position colonne sur le plan"
+    }
+  },
+  "required": [
+    "nom"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "VentesTG",
+  "type": "object",
+  "properties": {
+    "ean": {
+      "type": "string"
+    },
+    "tg_id": {
+      "type": "string"
+    },
+    "date_vente": {
+      "type": "string",
+      "format": "date"
+    },
+    "quantite": {
+      "type": "number"
+    },
+    "ca_ht": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "ean",
+    "tg_id",
+    "date_vente"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Acheteur",
+  "type": "object",
+  "properties": {
+    "nom": {
+      "type": "string",
+      "description": "Nom de l'acheteur"
+    },
+    "laboratoires": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Liste des laboratoires g\u00e9r\u00e9s par cet acheteur"
+    },
+    "couleur": {
+      "type": "string",
+      "description": "Couleur associ\u00e9e \u00e0 l'acheteur (hex)"
+    }
+  },
+  "required": [
+    "nom"
+  ]
+}

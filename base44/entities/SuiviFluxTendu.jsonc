@@ -1,0 +1,79 @@
+{
+  "name": "SuiviFluxTendu",
+  "type": "object",
+  "properties": {
+    "acheteur": {
+      "type": "string",
+      "description": "Nom de l'acheteur"
+    },
+    "ean": {
+      "type": "string",
+      "description": "Code EAN du produit"
+    },
+    "libelle": {
+      "type": "string",
+      "description": "Libell\u00e9 du produit"
+    },
+    "laboratoire": {
+      "type": "string",
+      "description": "Laboratoire du produit"
+    },
+    "note": {
+      "type": "string",
+      "description": "Note ou commentaire"
+    },
+    "ventes_s1": {
+      "type": "number",
+      "description": "Ventes semaine S-1"
+    },
+    "ventes_s": {
+      "type": "number",
+      "description": "Ventes semaine S"
+    },
+    "ventes_s2": {
+      "type": "number",
+      "description": "Ventes semaine S-2"
+    },
+    "ventes_s3": {
+      "type": "number",
+      "description": "Ventes semaine S-3"
+    },
+    "ventes_s4": {
+      "type": "number",
+      "description": "Ventes semaine S-4"
+    },
+    "semaine_s": {
+      "type": "string",
+      "description": "Num\u00e9ro de la semaine S"
+    },
+    "semaine_s1": {
+      "type": "string",
+      "description": "Num\u00e9ro de la semaine S-1"
+    },
+    "semaine_s2": {
+      "type": "string",
+      "description": "Num\u00e9ro de la semaine S-2"
+    },
+    "semaine_s3": {
+      "type": "string",
+      "description": "Num\u00e9ro de la semaine S-3"
+    },
+    "semaine_s4": {
+      "type": "string",
+      "description": "Num\u00e9ro de la semaine S-4"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "Date de derni\u00e8re mise \u00e0 jour"
+    },
+    "stock_restant": {
+      "type": "number",
+      "description": "Stock restant"
+    }
+  },
+  "required": [
+    "acheteur",
+    "ean",
+    "libelle"
+  ]
+}

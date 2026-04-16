@@ -1,0 +1,31 @@
+{
+  "name": "StatsProduit",
+  "type": "object",
+  "properties": {
+    "ean": {
+      "type": "string"
+    },
+    "libelle": {
+      "type": "string"
+    },
+    "stock_actuel": {
+      "type": "number"
+    },
+    "ventes_jour": {
+      "type": "number"
+    },
+    "ventes_total": {
+      "type": "number"
+    },
+    "ca_ht": {
+      "type": "number"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "ean"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "ProduitTG",
+  "type": "object",
+  "properties": {
+    "tg_id": {
+      "type": "string"
+    },
+    "ean": {
+      "type": "string"
+    },
+    "libelle": {
+      "type": "string"
+    },
+    "date_entree": {
+      "type": "string",
+      "format": "date"
+    },
+    "date_sortie": {
+      "type": "string",
+      "format": "date"
+    },
+    "actif": {
+      "type": "boolean",
+      "default": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "TOP",
+        "MIDDLE",
+        "FLOP"
+      ],
+      "description": "Statut du produit bas\u00e9 sur l'\u00e9volution"
+    },
+    "cycle_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date de d\u00e9but du cycle actuel"
+    },
+    "evolution_percent": {
+      "type": "number",
+      "description": "Pourcentage d'\u00e9volution par rapport \u00e0 la p\u00e9riode pr\u00e9-TG"
+    },
+    "metric_type": {
+      "type": "string",
+      "enum": [
+        "ventes",
+        "ca"
+      ],
+      "default": "ventes",
+      "description": "Type de m\u00e9trique pour l'\u00e9volution"
+    }
+  },
+  "required": [
+    "tg_id",
+    "ean"
+  ]
+}

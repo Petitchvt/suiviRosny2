@@ -1,0 +1,20 @@
+{
+  "name": "ScanSession",
+  "type": "object",
+  "properties": {
+    "tg_id": {
+      "type": "string"
+    },
+    "date_scan": {
+      "type": "string",
+      "format": "date"
+    },
+    "semaine": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "tg_id",
+    "date_scan"
+  ]
+}
