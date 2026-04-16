@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { base44 } from "@/api/base44Client";
+import { vigilanceBase44 } from "@/api/moduleClients";
 import HistoriqueEncart from "../components/flux-tendu/HistoriqueEncart";
 
 export default function FluxTendus() {
@@ -27,7 +27,7 @@ export default function FluxTendus() {
 
   async function loadData() {
     setLoading(true);
-    const result = await base44.entities.SuiviFluxTendu.list();
+    const result = await vigilanceBase44.entities.SuiviFluxTendu.list();
     setData(result);
     if (result.length > 0) {
       const dates = result.map(r => r.updated_at).filter(Boolean).sort().reverse();

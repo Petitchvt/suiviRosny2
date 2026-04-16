@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { base44 } from '@/api/base44Client';
+import { laboratoiresBase44 } from '@/api/moduleClients';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { Search, FlaskConical, User } from 'lucide-react';
@@ -22,7 +22,7 @@ export default function Accueil() {
 
   const { data: entries = [] } = useQuery({
     queryKey: ['ventescomparatif'],
-    queryFn: () => base44.entities.VentesComparatif.list('-created_date', 10000),
+    queryFn: () => laboratoiresBase44.entities.VentesComparatif.list('-created_date', 10000),
   });
 
   // Laboratoires uniques présents en base

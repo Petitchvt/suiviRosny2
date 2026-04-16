@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { Loader2, TrendingUp, TrendingDown, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { differenceInDays, parseISO, subDays, startOfWeek, endOfWeek, format } from 'date-fns';
 import { subtractBusinessDays } from '@/lib/businessDays';
@@ -9,10 +9,10 @@ import TGDetailPopup from '@/components/stats/TGDetailPopup';
 import ProductsByStatus from '@/components/suivi/ProductsByStatus';
 import LabsList from '@/components/stats/LabsList';
 
-const ProduitTGEntity = base44.entities.ProduitTG;
-const VentesTGEntity = base44.entities.VentesTG;
-const TGEntity = base44.entities.TG;
-const StatsProduitEntity = base44.entities.StatsProduit;
+const ProduitTGEntity = tgBase44.entities.ProduitTG;
+const VentesTGEntity = tgBase44.entities.VentesTG;
+const TGEntity = tgBase44.entities.TG;
+const StatsProduitEntity = tgBase44.entities.StatsProduit;
 
 function ProduitCard({ p, rank, isTop, onClick }) {
   return (

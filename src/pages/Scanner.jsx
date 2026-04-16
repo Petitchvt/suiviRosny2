@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { Loader2 } from 'lucide-react';
 import PharmacyMap, { ALL_TGS } from '@/components/scanner/PharmacyMap';
 import ScanSession from '@/components/scanner/ScanSession';
 
-const TG = base44.entities.TG;
-const ProduitTG = base44.entities.ProduitTG;
+const TG = tgBase44.entities.TG;
+const ProduitTG = tgBase44.entities.ProduitTG;
 
 export default function Scanner() {
   const [tgData, setTgData] = useState({});

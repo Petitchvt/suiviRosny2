@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
+import { laboratoiresBase44 } from '@/api/moduleClients';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -33,7 +33,7 @@ export default function PageAcheteur({ acheteur }) {
 
   const { data: allEntries = [], isLoading } = useQuery({
     queryKey: ['ventescomparatif'],
-    queryFn: () => base44.entities.VentesComparatif.list('-created_date', 10000),
+    queryFn: () => laboratoiresBase44.entities.VentesComparatif.list('-created_date', 10000),
   });
 
   // Filtrer uniquement les labos de cet acheteur
@@ -47,17 +47,17 @@ export default function PageAcheteur({ acheteur }) {
   });
 
   const createMutation = useMutation({
-    mutationFn: (data) => base44.entities.VentesComparatif.create(data),
+    mutationFn: (data) => laboratoiresBase44.entities.VentesComparatif.create(data),
     onSuccess: () => { queryClient.invalidateQueries({ queryKey: ['ventescomparatif'] }); setShowForm(false); },
   });
 
   const updateMutation = useMutation({
-    mutationFn: ({ id, data }) => base44.entities.VentesComparatif.update(id, data),
+    mutationFn: ({ id, data }) => laboratoiresBase44.entities.VentesComparatif.update(id, data),
     onSuccess: () => { queryClient.invalidateQueries({ queryKey: ['ventescomparatif'] }); setShowForm(false); setEditingEntry(null); },
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id) => base44.entities.VentesComparatif.delete(id),
+    mutationFn: (id) => laboratoiresBase44.entities.VentesComparatif.delete(id),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['ventescomparatif'] }),
   });
 

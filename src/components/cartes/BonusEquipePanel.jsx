@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { base44 } from "@/api/base44Client";
+import { challengeBase44 } from "@/api/moduleClients";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { EQUIPES, TEAM_COLORS } from "@/lib/teamsConfig";
 import { Plus, Minus, Trash2, PlusCircle, ArrowRight, RotateCcw } from "lucide-react";
@@ -33,16 +33,16 @@ export default function BonusEquipePanel({ semaine }) {
 
   const { data: bonus = [] } = useQuery({
     queryKey: ["bonus-equipe"],
-    queryFn: () => base44.entities.BonusEquipe.list("-created_date", 500),
+    queryFn: () => challengeBase44.entities.BonusEquipe.list("-created_date", 500),
   });
 
   const addBonus = useMutation({
-    mutationFn: (data) => base44.entities.BonusEquipe.create(data),
+    mutationFn: (data) => challengeBase44.entities.BonusEquipe.create(data),
     onSuccess: () => qc.invalidateQueries(["bonus-equipe"]),
   });
 
   const deleteBonus = useMutation({
-    mutationFn: (id) => base44.entities.BonusEquipe.delete(id),
+    mutationFn: (id) => challengeBase44.entities.BonusEquipe.delete(id),
     onSuccess: () => qc.invalidateQueries(["bonus-equipe"]),
   });
 

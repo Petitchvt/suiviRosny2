@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { Loader2, Plus, Trash2, ChevronUp, Pencil, Check, X, ChevronDown, Map } from 'lucide-react';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';
 import ConfigPharmacyMap from '@/components/config/ConfigPharmacyMap';
 
-const TGEntity = base44.entities.TG;
+const TGEntity = tgBase44.entities.TG;
 
 export default function ConfigTG() {
   const [tgList, setTgList] = useState([]);

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { Loader2 } from 'lucide-react';
 import { differenceInDays, parseISO } from 'date-fns';
 import { subtractBusinessDays } from '@/lib/businessDays';
 import PharmacyMap from '@/components/scanner/PharmacyMap';
 import SuiviTGPopup from '@/components/suivi/SuiviTGPopup';
 
-const TGEntity = base44.entities.TG;
-const ProduitTGEntity = base44.entities.ProduitTG;
-const VentesTGEntity = base44.entities.VentesTG;
-const StatsProduitEntity = base44.entities.StatsProduit;
+const TGEntity = tgBase44.entities.TG;
+const ProduitTGEntity = tgBase44.entities.ProduitTG;
+const VentesTGEntity = tgBase44.entities.VentesTG;
+const StatsProduitEntity = tgBase44.entities.StatsProduit;
 
 export default function Suivi() {
   const [loading, setLoading] = useState(true);

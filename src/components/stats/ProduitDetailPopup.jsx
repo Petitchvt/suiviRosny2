@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { X, Loader2, TrendingUp, TrendingDown, ChevronLeft, ChevronRight } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { differenceInDays, parseISO, subDays, format } from 'date-fns';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
 import { subtractBusinessDays } from '@/lib/businessDays';
 
-const VentesTGEntity = base44.entities.VentesTG;
+const VentesTGEntity = tgBase44.entities.VentesTG;
 
 export default function ProduitDetailPopup({ produit, onClose, allProduits = [], currentIndex = -1, onNavigate }) {
   const [loading, setLoading] = useState(true);

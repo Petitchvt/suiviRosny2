@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { X, Loader2, TrendingUp, TrendingDown } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { differenceInDays, parseISO } from 'date-fns';
 
-const VentesTGEntity = base44.entities.VentesTG;
+const VentesTGEntity = tgBase44.entities.VentesTG;
 
 export default function TGDetailPopup({ tg, produits = [], onClose, onProduitClick }) {
   const [loading, setLoading] = useState(true);

@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { base44 } from "@/api/base44Client";
+import { challengeBase44 } from "@/api/moduleClients";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { EQUIPES, TEAM_COLORS, MISSIONS, getEquipeOfOperateur, produitMatchDucray } from "@/lib/teamsConfig";
 import { normalizeOperateur } from "@/lib/normalizeOperateur";
@@ -46,31 +46,31 @@ export default function Cartes() {
 
   const { data: ventes = [], isLoading } = useQuery({
     queryKey: ["ventes-operateurs"],
-    queryFn: () => base44.entities.VentesOperateurs.list("-created_date", 10000),
+    queryFn: () => challengeBase44.entities.VentesOperateurs.list("-created_date", 10000),
   });
 
   const { data: tirages = [] } = useQuery({
     queryKey: ["tirages-cartes"],
-    queryFn: () => base44.entities.TirageCartes.list("-created_date", 500),
+    queryFn: () => challengeBase44.entities.TirageCartes.list("-created_date", 500),
   });
 
   const { data: bonusEquipes = [] } = useQuery({
     queryKey: ["bonus-equipe"],
-    queryFn: () => base44.entities.BonusEquipe.list("-created_date", 500),
+    queryFn: () => challengeBase44.entities.BonusEquipe.list("-created_date", 500),
   });
 
   const { data: operateurs = [] } = useQuery({
     queryKey: ["operateurs"],
-    queryFn: () => base44.entities.Operateur.list(),
+    queryFn: () => challengeBase44.entities.Operateur.list(),
   });
 
   const saveTirage = useMutation({
-    mutationFn: (data) => base44.entities.TirageCartes.create(data),
+    mutationFn: (data) => challengeBase44.entities.TirageCartes.create(data),
     onSuccess: () => qc.invalidateQueries(["tirages-cartes"]),
   });
 
   const toggleApplique = useMutation({
-    mutationFn: ({ id, applique }) => base44.entities.TirageCartes.update(id, { applique }),
+    mutationFn: ({ id, applique }) => challengeBase44.entities.TirageCartes.update(id, { applique }),
     onSuccess: () => qc.invalidateQueries(["tirages-cartes"]),
   });
 

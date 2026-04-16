@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { base44 } from "@/api/base44Client";
+import { challengeBase44 } from "@/api/moduleClients";
 import { useQuery } from "@tanstack/react-query";
 import { getEquipeOfOperateur, EQUIPES, TEAM_COLORS } from "@/lib/teamsConfig";
 import { normalizeOperateur } from "@/lib/normalizeOperateur";
@@ -16,7 +16,7 @@ export default function Ventes() {
 
   const { data: ventes = [], isLoading } = useQuery({
     queryKey: ["ventes-operateurs"],
-    queryFn: () => base44.entities.VentesOperateurs.list("-created_date", 10000),
+    queryFn: () => challengeBase44.entities.VentesOperateurs.list("-created_date", 10000),
   });
 
   const semaines = useMemo(() => getSemainesDisponibles(ventes), [ventes]);

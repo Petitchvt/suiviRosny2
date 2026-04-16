@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { base44 } from "@/api/base44Client";
+import { challengeBase44 } from "@/api/moduleClients";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Plus, Trash2, Star, ArrowUpDown, ArrowUp, ArrowDown, ChevronDown, ChevronUp, Filter } from "lucide-react";
 import SemainePicker from "@/components/dashboard/SemainePicker";
@@ -34,31 +34,31 @@ export default function Operateurs() {
 
   const { data: ventes = [] } = useQuery({
     queryKey: ["ventes-operateurs"],
-    queryFn: () => base44.entities.VentesOperateurs.list("-created_date", 10000),
+    queryFn: () => challengeBase44.entities.VentesOperateurs.list("-created_date", 10000),
   });
 
   const { data: operateurs = [] } = useQuery({
     queryKey: ["operateurs"],
-    queryFn: () => base44.entities.Operateur.list(),
+    queryFn: () => challengeBase44.entities.Operateur.list(),
   });
 
   const { data: bonusEquipes = [] } = useQuery({
     queryKey: ["bonus-equipe"],
-    queryFn: () => base44.entities.BonusEquipe.list("-created_date", 500),
+    queryFn: () => challengeBase44.entities.BonusEquipe.list("-created_date", 500),
   });
 
   const createOp = useMutation({
-    mutationFn: (data) => base44.entities.Operateur.create(data),
+    mutationFn: (data) => challengeBase44.entities.Operateur.create(data),
     onSuccess: () => { qc.invalidateQueries(["operateurs"]); setShowAdd(false); setNewNom(""); },
   });
 
   const deleteOp = useMutation({
-    mutationFn: (id) => base44.entities.Operateur.delete(id),
+    mutationFn: (id) => challengeBase44.entities.Operateur.delete(id),
     onSuccess: () => qc.invalidateQueries(["operateurs"]),
   });
 
   const updateBonus = useMutation({
-    mutationFn: ({ id, bonus }) => base44.entities.Operateur.update(id, { points_bonus: bonus }),
+    mutationFn: ({ id, bonus }) => challengeBase44.entities.Operateur.update(id, { points_bonus: bonus }),
     onSuccess: () => { qc.invalidateQueries(["operateurs"]); },
   });
 

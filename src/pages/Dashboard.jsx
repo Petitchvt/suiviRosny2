@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef } from "react";
-import { base44 } from "@/api/base44Client";
+import { challengeBase44 } from "@/api/moduleClients";
 import { useQuery } from "@tanstack/react-query";
 
 import { Trophy, Download } from "lucide-react";
@@ -40,17 +40,17 @@ export default function Dashboard() {
 
   const { data: ventes = [], isLoading } = useQuery({
     queryKey: ["ventes-operateurs"],
-    queryFn: () => base44.entities.VentesOperateurs.list("-created_date", 10000),
+    queryFn: () => challengeBase44.entities.VentesOperateurs.list("-created_date", 10000),
   });
 
   const { data: bonusEquipes = [] } = useQuery({
     queryKey: ["bonus-equipe"],
-    queryFn: () => base44.entities.BonusEquipe.list("-created_date", 500),
+    queryFn: () => challengeBase44.entities.BonusEquipe.list("-created_date", 500),
   });
 
   const { data: operateurs = [] } = useQuery({
     queryKey: ["operateurs"],
-    queryFn: () => base44.entities.Operateur.list(),
+    queryFn: () => challengeBase44.entities.Operateur.list(),
     refetchInterval: 5000,
   });
 

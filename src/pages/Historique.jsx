@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { Loader2, ArrowRight } from 'lucide-react';
 import { differenceInDays, parseISO } from 'date-fns';
 
-const ProduitTGEntity = base44.entities.ProduitTG;
-const TGEntity = base44.entities.TG;
-const VentesTGEntity = base44.entities.VentesTG;
-const StatsProduitEntity = base44.entities.StatsProduit;
+const ProduitTGEntity = tgBase44.entities.ProduitTG;
+const TGEntity = tgBase44.entities.TG;
+const VentesTGEntity = tgBase44.entities.VentesTG;
+const StatsProduitEntity = tgBase44.entities.StatsProduit;
 
 export default function Historique() {
   const [items, setItems] = useState([]);

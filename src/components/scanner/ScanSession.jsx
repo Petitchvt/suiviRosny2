@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { ArrowLeft, X, Check, Loader2, Sparkles, Camera, ScanLine, Plus } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { base44 } from '@/api/base44Client';
+import { tgBase44 } from '@/api/moduleClients';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 import CameraScanner from './CameraScanner';
 
-const TGEntity = base44.entities.TG;
-const ProduitTGEntity = base44.entities.ProduitTG;
-const ScanSessionEntity = base44.entities.ScanSession;
-const StatsProduitEntity = base44.entities.StatsProduit;
+const TGEntity = tgBase44.entities.TG;
+const ProduitTGEntity = tgBase44.entities.ProduitTG;
+const ScanSessionEntity = tgBase44.entities.ScanSession;
+const StatsProduitEntity = tgBase44.entities.StatsProduit;
 
 const AZERTY_TO_DIGIT = {
   'à':'0','&':'1','é':'2','"':'3',"'":'4',
